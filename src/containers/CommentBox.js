@@ -18,13 +18,20 @@ class CommentBox extends Component {
         }
       ]
     };
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
+  }
+
+  handleCommentSubmit(submittedComment){
+    submittedComment.id = Date.now()
+    const updatedComments = [...this.state.data, submittedComment] // spread operator is ..., copies state then makes new one.
+    this.setState({data: updatedComments})
   }
 
   render() {
     return (
       <div className="comment-box">
-      <h2>Add a comment</h2>
-      <Form/>
+        <h2>Add a comment</h2>
+        <Form onCommentSubmit = {this.handleCommentSubmit}/>
         <h2>Comments</h2>
         <CommentList data={this.state.data} />
       </div>
