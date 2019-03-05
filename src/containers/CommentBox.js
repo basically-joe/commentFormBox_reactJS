@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CommentList from "../components/CommentList";
+import Form from "../components/Form"
 
 class CommentBox extends Component {
 
@@ -22,6 +23,8 @@ class CommentBox extends Component {
   render() {
     return (
       <div className="comment-box">
+      <h2>Add a comment</h2>
+      <Form/>
         <h2>Comments</h2>
         <CommentList data={this.state.data} />
       </div>
